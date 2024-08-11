@@ -18,11 +18,14 @@ body{
     --primary-color:#19180A;
     --secondary-color:#124E78;
     --tertiary-color:#BA2D0B;
-    --section-margin: 2em;
+    --section-margin: 4em;
 }
 main{
     flex:1;
     margin: var(--section-margin) 4em;
+  
+}
+.home-content{
     display: grid;
     grid-template-columns: 1fr 3fr;
 }
@@ -51,6 +54,33 @@ header li{
     font-size: 1.5rem;
 }
 
+.create-category {
+display: flex;
+justify-content: center;
+}
+.create-category form{
+    border: 1px solid var(--secondary-color);
+    padding: 1em 2em;
+    display: flex;
+    flex-direction: column;
+   
+}
+.create-category form label{
+    font-size: 1.5em;
+}
+.create-category form input{
+    margin: 1em 0;
+    padding: 1em 0.5em;
+    font-size: 1.2rem;
+ 
+}
+.create-category button{
+    font-size: 1.2rem;
+    padding: 0.5em 1em;
+   border: none;
+   color: white;
+    background-color: var(--secondary-color);
+}
 
 /* footer */
 footer{
