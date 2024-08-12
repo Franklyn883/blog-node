@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <%- include("../partials/head.ejs") %>
+    <body>
+        <%- include("../partials/header.ejs") %>
+        <main>
+            <section class="blog-content">
+                <form action="/blog/create" method="POST">
+                    <div>
+                        <label for="title">Blog Title:</label>
+                        <input type="text" id="title" name="title" placeholder="blog title" />
+                    </div>
+                    <div>
+                        <label for="snippet">Blog snippet:</label>
+                        <input type="text" id="snippet" name="snippet" placeholder="blog snippet"/>
+                    </div>
+                
+                        <label for="body">Blog Body:</label>
+                        <textarea type="text" id="body" name="body" placeholder="blog body" rows="25">
+                       
+                </textarea>
+                    </div>
+                    <div>
+                        <label for="categories">Categories:</label>
+                        <select name="categories" id="categories" multiple>
+                            <% categories.forEach(category => { %>
+                            <option value="<%= category._id %>">
+                                <%= category.title %>
+                            </option>
+                            <% }) %>
+                        </select>
+                    </div>
+                    <div>
+                    <button type="submit">submit</button>
+                </div>
+                </form>
+            </section>
+        </main>
+        <%- include("../partials/footer.ejs") %>
+        <script src="" async defer></script>
+    </body>
+</html>

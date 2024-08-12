@@ -1,17 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <%- include("../partials/head.ejs") %>
+    <%- include("../partials/head.ejs") %>
     <body>
         <%- include("../partials/header.ejs") %>
         <main>
-            <section class="home-content"> 
-                <h1> Browse Categories</h1>
-                <div class="content"> </div>
-            </section>
-            <section> 
+            <section class="home-content">
+            <article class="categories">
+                <h1>Browse Categories</h1>
+                <div class="content">
+                    <% if (categories.length > 0) { %> <%
+                    categories.forEach(category => { %>
+                        <div class="category">
+                    <h4><a href="/category/<%= category._id %>"><%= category.title %></a></h4>
+                </div>
+                    <% }) %> <% } %>
+                </div>
+            </article>
+            <article class="blogs">
                 <h1>All blogs</h1>
-                <div class="content"></div>
-            </section>
+                <div class="content">
+                    <% if (blogs.length > 0) { %> <%
+                        blogs.forEach(blog => { %>
+                            <div class="blog">
+                        <h4><a href="/blog/<%= blog._id %>"><%= blog.title %></a></h4>
+                        <small>Created at: <%= new Date(blog.createdAt).toLocaleDateString() %> at <%= new Date(blog.createdAt).toLocaleTimeString() %></small>
+                        <p> <%= blog.snippet %></p>
+                    </div>
+                        <% }) %> <% } %>
+
+                </div>
+            </article>
+        </section>
         </main>
         <%- include("../partials/footer.ejs") %>
         <script src="" async defer></script>
