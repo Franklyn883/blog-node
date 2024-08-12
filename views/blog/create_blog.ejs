@@ -22,9 +22,9 @@
                     </div>
                     <div>
                         <label for="categories">Categories:</label>
-                        <select name="categories" id="categories" multiple>
+                        <select name="category" id="categories" multiple>
                             <% categories.forEach(category => { %>
-                            <option value="<%= category._id %>">
+                            <option value="<%= category._id %>" name="category">
                                 <%= category.title %>
                             </option>
                             <% }) %>

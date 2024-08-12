@@ -114,7 +114,18 @@ body .blog-content {
     padding: 1em;
 }
 .blog-content select{
-    padding: 0.5em;
+    width: 40%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    color: #333;
+    font-size: 16px;
+}
+.blog-content select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
 }
 .blog-content option{
     margin: 0.5em;
@@ -133,12 +144,15 @@ body .blog-content {
     width: 60%;
     margin: 0 auto;
 }
-.detail-content button{
+.detail-content button,
+.detail-content .update{
     padding: 0.5em 1em;
     border: none;
     cursor: pointer;
     margin: 1em;
     font-size: 1rem;
+    text-decoration: none;
+    
    
 }
 .detail-content .delete{
@@ -149,6 +163,7 @@ body .blog-content {
 .detail-content .update{
     background-color: green;
     color: white;
+
 }
 /* footer */
 footer {

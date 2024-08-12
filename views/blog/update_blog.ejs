@@ -5,28 +5,39 @@
         <%- include("../partials/header.ejs") %>
         <main>
             <section class="blog-content">
-                <form action="/blog/create" method="POST">
+                <form action="/blog/<%= blog._id %>" method="POST">
                     <div>
                         <label for="title">Blog Title:</label>
-                        <input type="text" id="title" name="title" placeholder="blog title" />
+                        <input type="text" id="title" name="title"  value="<%= blog.title %>" />
                     </div>
                     <div>
                         <label for="snippet">Blog snippet:</label>
-                        <input type="text" id="snippet" name="snippet" placeholder="blog snippet"/>
+                        <input type="text" id="snippet" name="snippet" value=" <%= blog.snippet %>"/>
                     </div>
                 
                         <label for="body">Blog Body:</label>
-                        <textarea type="text" id="body" name="body" placeholder="blog body" rows="25">
-                       
+                        <textarea type="text" id="body" name="body" rows="25">
+                            <%= blog.body %>
                 </textarea>
                     </div>
                     <div>
                         <label for="categories">Categories:</label>
-                        <select name="categories" id="categories" multiple>
+                        <select name="category" id="categories" multiple>
                             <% categories.forEach(category => { %>
-                            <option value="<%= category._id %>">
+
+                           <% if(blog.category)  { %>
+                            <option  value="<%= category._id %>" <%= category._id.equals(blog.category._id) ? 'selected' : '' %> >
                                 <%= category.title %>
                             </option>
+
+                          <% }
+                         else { %>
+                            <option value="<%= category._id %>" name="category">
+                                <%= category.title %>
+                            </option>
+
+                        <%  } %>
+
                             <% }) %>
                         </select>
                     </div>
